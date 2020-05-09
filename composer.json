@@ -1,0 +1,32 @@
+{
+  "name": "modava/imagick",
+  "description": "Imagick Modava",
+  "type": "Yii2-extension",
+  "keywords": [
+    "modava",
+    "imagick"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Mong Dao",
+      "email": "mongdaovan86@yahoo.com",
+      "homepage": "https://modava.com.vn/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "source": "https://github.com/modava/imagick"
+  },
+  "require": {
+    "ext-imagick": "*",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "modava\\imagick\\": "src"
+    }
+  },
+  "minimum-stability": "dev"
+}
