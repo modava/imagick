@@ -50,6 +50,10 @@ class Imagick
             $arrFile = array_pop($arrFile);
             $this->ext = explode('.', $arrFile)[1];
             $this->filename = explode('.', $arrFile)[0];
+
+            if($online == true) {
+                unlink($pathImage);
+            }
         } catch (\ImagickException $ex) {
             throw new \Exception($ex);
         }
