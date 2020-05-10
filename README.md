@@ -1,1 +1,1 @@
-Tiny Modava
+Imagick Modava
