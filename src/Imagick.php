@@ -23,7 +23,7 @@ class Imagick
      * @var string Opened image name
      */
 
-    private $filename;
+    public $filename = null;
 
     /**
      * @var string Opened image ext
@@ -49,8 +49,10 @@ class Imagick
             $pathUrl = rtrim(str_replace('\\', '/', $pathUrl), '/\\');
             $arrFile = explode('/', $pathUrl);
             $arrFile = array_pop($arrFile);
+            if($this->filename == null) {
+                $this->filename = explode('.', $arrFile)[0];
+            }
             $this->ext = explode('.', $arrFile)[1];
-            $this->filename = explode('.', $arrFile)[0];
 
             if($online == true) {
                 unlink($pathImage);
