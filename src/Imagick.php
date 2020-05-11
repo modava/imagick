@@ -46,6 +46,7 @@ class Imagick
             $this->height = $geo['height'];
             $this->width = $geo['width'];
             $pathUrl = $this->image->getImageFilename();
+            $pathUrl = rtrim(str_replace('\\', '/', $pathUrl), '/\\');
             $arrFile = explode('/', $pathUrl);
             $arrFile = array_pop($arrFile);
             $this->ext = explode('.', $arrFile)[1];
