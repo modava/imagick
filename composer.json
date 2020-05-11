@@ -19,10 +19,6 @@
     "wiki": "http://www.yiiframework.com/wiki/",
     "source": "https://github.com/modava/imagick"
   },
-  "require": {
-    "ext-imagick": "*",
-    "ext-curl": "*"
-  },
   "autoload": {
     "psr-4": {
       "modava\\imagick\\": "src"
