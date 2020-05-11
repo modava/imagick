@@ -42,11 +42,9 @@ class Imagick
         }
         try {
             $this->image = new \Imagick($pathImage);
-            $geo = $this->image->getImageGeometry();
-            $this->height = $geo['height'];
-            $this->width = $geo['width'];
-            $pathUrl = $this->image->getImageFilename();
-            $pathUrl = rtrim(str_replace('\\', '/', $pathUrl), '/\\');
+            $this->height = $this->image->getImageHeight();
+            $this->width = $this->image->getImageWidth();
+            $pathUrl = rtrim(str_replace('\\', '/', $this->image->getImageFilename()), '/\\');
             $arrFile = explode('/', $pathUrl);
             $arrFile = array_pop($arrFile);
             if($this->filename == null) {
