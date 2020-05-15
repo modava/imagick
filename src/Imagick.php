@@ -52,7 +52,7 @@ class Imagick
             }
             $this->ext = explode('.', $arrFile)[1];
 
-            if($online == true) {
+            if($online == true && !file_exists($pathImage)) {
                 unlink($pathImage);
             }
         } catch (\ImagickException $ex) {
