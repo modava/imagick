@@ -47,12 +47,12 @@ class Imagick
             $pathUrl = rtrim(str_replace('\\', '/', $this->image->getImageFilename()), '/\\');
             $arrFile = explode('/', $pathUrl);
             $arrFile = array_pop($arrFile);
-            if($this->filename == null) {
+            if ($this->filename == null) {
                 $this->filename = explode('.', $arrFile)[0];
             }
             $this->ext = explode('.', $arrFile)[1];
 
-            if($online == true && !file_exists($pathImage)) {
+            if ($online == true && !file_exists($pathImage)) {
                 unlink($pathImage);
             }
         } catch (\ImagickException $ex) {
@@ -260,14 +260,14 @@ class Imagick
     public function saveTo($path)
     {
         $filename = Helper::createAlias($this->filename);
-        $aliasFile = $path . $filename . '.' . $this->ext;
-        if (file_exists($aliasFile)) {
-            $aliasFile = $path . $filename . '-' . time() . '.' . $this->ext;
+        $fileNameResult = $filename . '.' . $this->ext;
+        if (file_exists($fileNameResult)) {
+            $fileNameResult = $filename . '-' . time() . '.' . $this->ext;
         }
-        $this->image->writeImage($aliasFile);
+        $this->image->writeImage($path . $fileNameResult);
         $this->image->destroy();
 
-        return $aliasFile;
+        return $fileNameResult;
     }
 
     private function saveImageFromOnline($url)
