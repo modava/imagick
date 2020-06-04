@@ -268,7 +268,7 @@ class Imagick
     {
         $filename = Helper::createAlias($this->name);
         $fileNameResult = $filename . '.' . $this->ext;
-        if (file_exists($fileNameResult)) {
+        if (file_exists($path.$fileNameResult)) {
             $fileNameResult = $filename . '-' . time() . '.' . $this->ext;
         }
         $this->image->writeImage($path . $fileNameResult);
