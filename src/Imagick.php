@@ -267,9 +267,13 @@ class Imagick
     public function saveTo($path)
     {
         $filename = Helper::createAlias($this->name);
-        $fileNameResult = $filename . '.' . $this->ext;
-        if (file_exists($path.$fileNameResult)) {
-            $fileNameResult = $filename . '-' . time() . '.' . $this->ext;
+        if($this->filename == null) {
+            $fileNameResult = $filename . '.' . $this->ext;
+            if (file_exists($path.$fileNameResult)) {
+                $fileNameResult = $filename . '-' . time() . '.' . $this->ext;
+            }
+        } else {
+            $fileNameResult = $this->filename;
         }
         $this->image->writeImage($path . $fileNameResult);
         $this->image->destroy();
