@@ -275,6 +275,10 @@ class Imagick
         } else {
             $fileNameResult = $this->filename;
         }
+        if (!is_dir($path)) {
+            mkdir($path);
+        }
+
         $this->image->writeImage($path . $fileNameResult);
         $this->image->destroy();
 
